@@ -32,7 +32,7 @@ class UserResource extends Resource
     {
         return $schema
             ->components([
-                FusedGroup::make([
+/*                FusedGroup::make([
                     Grid::make(3)
                         ->schema([
                             Select::make('country')
@@ -82,7 +82,7 @@ class UserResource extends Resource
                             // ...
                         ]),
 
-                ])->columnSpanFull()
+                ])->columnSpanFull()*/
 
 
             ]);

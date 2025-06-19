@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Courses\Schemas;
 
+use App\Enums\Country;
 use App\Filament\Resources\Courses\Components\SelectField;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Repeater;
@@ -53,6 +54,19 @@ class CourseForm
                         ->required(),
                 ])->label('Course Schedule')
                     ->columns(2)
+                    ->columnSpanFull()
+                    ->inlineLabel(),
+                Repeater::make('countries')
+                    ->label('Countries')
+                    ->schema([
+                        Select::make('country')
+                            ->label('Country')
+                            ->options(Country::class)
+                            ->multiple()
+                            ->required()
+                            ->searchable()
+                            ->placeholder('Select a country'),
+                    ])
                     ->columnSpanFull()
                     ->inlineLabel(),
                 Repeater::make('students')

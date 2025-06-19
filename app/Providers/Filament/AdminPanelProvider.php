@@ -31,10 +31,10 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->profile()
-            ->multiFactorAuthentication([
+ /*           ->multiFactorAuthentication([
                 EmailAuthentication::make()
                     ->codeExpiryMinutes(5),
-            ], isRequired: true)
+            ], isRequired: true)*/
             ->colors([
                 'primary' => Color::Amber,
             ])
