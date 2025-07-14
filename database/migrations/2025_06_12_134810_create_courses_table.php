@@ -21,6 +21,24 @@ return new class extends Migration
             $table->foreignId('instructor_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
+
+        Schema::create('lessons', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('course_id')->constrained('courses')->onDelete('cascade');
+            $table->string('title');
+            $table->text('content')->nullable();
+            $table->dateTime('published_at')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('resources', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('lesson_id')->constrained('lessons')->onDelete('cascade');
+            $table->string('name');
+            $table->string('type'); // por ejemplo: pdf, video, link, etc.
+            $table->string('url')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
